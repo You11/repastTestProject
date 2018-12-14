@@ -1,4 +1,4 @@
-package ru.you11.repasttestproject
+package ru.you11.repasttestproject.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
+import ru.you11.repasttestproject.R
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {

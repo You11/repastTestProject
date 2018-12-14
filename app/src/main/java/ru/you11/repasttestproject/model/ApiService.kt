@@ -19,23 +19,23 @@ interface ApiService {
     @GET("restoapp.php")
     fun getWorkers(
         @Query("waiters_all") isAllWaiters: Boolean
-    ): Observable<ArrayList<Workers>>
+    ): Observable<ArrayList<Worker>>
 
     @GET("restoapp.php")
     fun getTipsForUser(
         @Query("favorite") isFavorite: Boolean,
         @Query("user_id") id: String
-    ): Observable<ArrayList<Tips>>
+    ): Observable<ArrayList<Tip>>
 
     @GET("restoapp.php")
     fun getAllTips(
         @Query("all_tip") allTips: Boolean
-    ): Observable<ArrayList<Tips>>
+    ): Observable<ArrayList<Tip>>
 
     @GET("restoapp.php")
     fun getWorkersInRestaurant(
         @Query("waiters") id: Int
-    ): Observable<ArrayList<Workers>>
+    ): Observable<ArrayList<Worker>>
 
     companion object {
         fun create(): ApiService {

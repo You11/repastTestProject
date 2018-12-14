@@ -37,7 +37,7 @@ class NearbyFragment: Fragment(), NearbyContract.View {
 
     override fun onResume() {
         super.onResume()
-        presenter.loadRestaurants()
+        presenter.start()
     }
 
     override fun updateRVWithRestaurants(restaurants: ArrayList<Restaurant>) {
@@ -92,6 +92,8 @@ class NearbyFragment: Fragment(), NearbyContract.View {
         }
 
         private fun addStarsToLayout(context: Context, starsLayout: LinearLayout, number: Int) {
+            starsLayout.removeAllViews()
+
             for (i in 1..number) {
                 val star = createFullStar(context)
                 starsLayout.addView(star)

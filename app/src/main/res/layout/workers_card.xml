@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+    <ImageView android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:id="@+id/rv_worker_photo"
+               android:contentDescription="@string/tips_worker_photo_content_description"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="30dp"
+              android:id="@+id/rv_worker_name"
+              android:layout_toRightOf="@id/rv_worker_photo"
+              android:layout_toEndOf="@id/rv_worker_photo"
+              android:layout_toLeftOf="@id/rv_worker_like_button"
+              android:layout_toStartOf="@id/rv_worker_like_button"
+              android:textColor="@color/colorTitle"
+              android:layout_marginLeft="10dp"
+              android:layout_marginStart="10dp"
+              android:gravity="center_vertical"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="30dp"
+              android:layout_below="@id/rv_worker_name"
+              android:layout_toRightOf="@id/rv_worker_photo"
+              android:layout_toEndOf="@id/rv_worker_photo"
+              android:id="@+id/rv_worker_position"
+              android:layout_toLeftOf="@id/rv_worker_like_button"
+              android:layout_toStartOf="@id/rv_worker_like_button"
+              android:textColor="@color/colorSubTitle"
+              android:layout_marginLeft="10dp"
+              android:layout_marginStart="10dp"
+              android:gravity="center_vertical"/>
+
+    <ImageButton android:layout_width="60dp"
+                 android:layout_height="60dp"
+                 android:id="@+id/rv_worker_like_button"
+                 android:layout_alignParentRight="true"
+                 android:layout_alignParentEnd="true"
+                 android:layout_centerVertical="true"
+                 android:src="@drawable/baseline_favorite_border_black_24"
+                 android:contentDescription="@string/tips_like_content_description"
+                 android:background="?android:selectableItemBackground"/>
+
+</RelativeLayout>

@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="24dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
+                    android:focusableInTouchMode="true"
+                    android:background="#ffffff">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tips_header"
+                android:id="@+id/tips_header"
+                style="@style/CustomHeader"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tips_sub_header"
+                android:layout_below="@id/tips_header"
+                android:id="@+id/tips_sub_header"
+                style="@style/CustomSubHeader"/>
+
+        <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_below="@id/tips_sub_header"
+                android:id="@+id/tips_rv"/>
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="meow"/>
+        <include layout="@layout/qr_footer_layout"
+                 android:layout_below="@id/tips_rv"
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:layout_centerHorizontal="true"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

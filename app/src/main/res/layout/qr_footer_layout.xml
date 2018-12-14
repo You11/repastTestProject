@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="48dp"
+              android:textSize="12sp"
+              android:fontFamily="sans-serif"
+              android:textStyle="normal"
+              android:textColor="#99000000"
+              android:lineSpacingExtra="4sp"
+              android:id="@+id/nearby_restaurant_not_found_message"
+              android:text="@string/nearby_restaurant_not_found_message"
+              android:layout_centerHorizontal="true"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="10dp"
+            android:text="@string/nearby_qr_button_text"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="#ffffff"
+            android:background="#6200ee"
+            android:layout_below="@id/nearby_restaurant_not_found_message"
+            android:id="@+id/nearby_qr_button"
+            android:layout_marginBottom="68dp"
+            android:layout_centerHorizontal="true"/>
+</RelativeLayout>

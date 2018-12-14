@@ -2,7 +2,7 @@ package ru.you11.repasttestproject.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Tips(
+data class Tip(
     val id: Int,
     @SerializedName("waiter_id")
     val waiterId: Int,

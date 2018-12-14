@@ -10,6 +10,7 @@ class Restaurant(
     val address: String,
     val description: String,
     @SerializedName("image")
+    //made mutable because photo url gets re-initialized immediately
     var photo: String,
     @SerializedName("phone")
     val phoneNumber: String? = "unknown",

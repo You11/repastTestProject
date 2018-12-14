@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RepastTestProject</string>
 
-    <string name="base_url">http://cookit.zenithapps.ru/</string>
+    <string name="base_url" translatable="false">http://cookit.zenithapps.ru/</string>
     
     <string name="nearby_header">Обзор</string>
     <string name="nearby_sub_header">Рядом с вами</string>
@@ -9,4 +9,15 @@
     <string name="nearby_qr_button_text">определить по qr</string>
     <string name="restaurant_photo_description">Фото ресторана</string>
     <string name="restaurant_tips_button">Оставить чаевые</string>
+
+    <string name="tips_header">Шаг первый</string>
+    <string name="tips_sub_header">Выберите понравившегося сотрудника</string>
+    <string name="tips_worker_photo_content_description">Фотография сотрудника</string>
+    <string name="tips_like_content_description">Добавьте сотрудника в избранные</string>
+
+    <string name="payment_header">Шаг второй</string>
+    <string name="payment_sub_header">Укажите сумму чаевых и укажите платежные реквизиты</string>
+
+    <string name="feedback_header">Спасибо вам!</string>
+    <string name="feedback_sub_header">Оцените нашу работу, мы будем рады Вашему мнению!</string>
 </resources>

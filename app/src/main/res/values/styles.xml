@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomHeader" >
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#de000000</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="CustomSubHeader" >
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#99000000</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
 </resources>

@@ -5,4 +5,6 @@
     <string name="nearby_sub_header">Рядом с вами</string>
     <string name="nearby_restaurant_not_found_message">Не видите нужное заведение?</string>
     <string name="nearby_qr_button_text">определить по qr</string>
+    <string name="restaurant_photo_description">Фото ресторана</string>
+    <string name="restaurant_tips_button">Оставить чаевые</string>
 </resources>

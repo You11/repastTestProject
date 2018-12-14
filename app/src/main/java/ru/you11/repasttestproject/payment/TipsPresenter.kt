@@ -1,6 +1,6 @@
-package ru.you11.repasttestproject.main
+package ru.you11.repasttestproject.payment
 
-class FavoritesPresenter(private val fragment: FavoritesFragment): FavoriteContract.Presenter {
+class TipsPresenter(private val fragment: TipsFragment): TipsContract.Presenter {
 
 
     init {

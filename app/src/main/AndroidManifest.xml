@@ -3,8 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="ru.you11.repasttestproject">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
             android:name=".App"
@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".payment.PaymentActivity"
+                  android:parentActivityName=".main.MainActivity"/>
     </application>
 
 </manifest>

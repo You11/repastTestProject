@@ -15,19 +15,15 @@ interface NearbyContract {
 
         fun loadRestaurants()
 
-
+        fun startPaymentActivity(restaurantId: Int)
     }
 }
 
 interface FavoriteContract {
 
-    interface View: BaseView<Presenter> {
+    interface View: BaseView<Presenter>
 
-    }
-
-    interface Presenter: BasePresenter {
-
-    }
+    interface Presenter: BasePresenter
 }
 
 interface UserProfileContract {

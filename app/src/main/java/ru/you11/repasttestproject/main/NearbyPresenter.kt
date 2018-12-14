@@ -1,10 +1,12 @@
 package ru.you11.repasttestproject.main
 
+import android.content.Intent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ru.you11.repasttestproject.R
 import ru.you11.repasttestproject.model.ApiService
+import ru.you11.repasttestproject.payment.PaymentActivity
 
 class NearbyPresenter(private val fragment: NearbyFragment) : NearbyContract.Presenter {
 
@@ -15,11 +17,12 @@ class NearbyPresenter(private val fragment: NearbyFragment) : NearbyContract.Pre
     }
 
     override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        loadRestaurants()
     }
 
     override fun loadRestaurants() {
         val apiService = ApiService.create()
+        //TODO: how the hell API has typos
         compDisposable.add(apiService.getRestaurants("restaraunts")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -29,5 +32,11 @@ class NearbyPresenter(private val fragment: NearbyFragment) : NearbyContract.Pre
                 }
                 fragment.updateRVWithRestaurants(result)
             })
+    }
+
+    override fun startPaymentActivity(restaurantId: Int) {
+        val intent = Intent(fragment.activity, PaymentActivity::class.java)
+        intent.putExtra("restaurantId", restaurantId)
+        fragment.startActivity(intent)
     }
 }

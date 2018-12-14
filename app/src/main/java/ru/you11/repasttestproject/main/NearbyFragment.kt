@@ -26,12 +26,9 @@ class NearbyFragment: Fragment(), NearbyContract.View {
 
         val root = inflater.inflate(R.layout.fragment_nearby, container, false)
         with(root) {
-//            restaurantResults.add(Restaurant(0, "Maecenas 1903", 4.5, "Екатеринбург, ул. Братьев Быковых, 74", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "http://cookit.zenithapps.ru/images/prt.jpg", "12312", 4))
-//            restaurantResults.add(Restaurant(0, "Maecenas 1903", 1.3, "Екатеринбург, ул. Братьев Быковых, 74", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "http://cookit.zenithapps.ru/images/prt.jpg", "12312", 4))
-
             recyclerView = findViewById(R.id.nearby_rv)
             recyclerView.layoutManager = LinearLayoutManager(activity)
-            recyclerView.adapter = RestaurantRecyclerViewAdapter(restaurants)
+            recyclerView.adapter = RestaurantRecyclerViewAdapter(restaurants, presenter)
             recyclerView.isNestedScrollingEnabled = false
         }
 
@@ -50,7 +47,8 @@ class NearbyFragment: Fragment(), NearbyContract.View {
     }
 
 
-    class RestaurantRecyclerViewAdapter(private val results: ArrayList<Restaurant>):
+    class RestaurantRecyclerViewAdapter(private val results: ArrayList<Restaurant>,
+                                        private val presenter: NearbyContract.Presenter):
         RecyclerView.Adapter<RestaurantRecyclerViewAdapter.ViewHolder>() {
 
         class ViewHolder(val layout: CardView): RecyclerView.ViewHolder(layout) {
@@ -83,6 +81,10 @@ class NearbyFragment: Fragment(), NearbyContract.View {
             holder.description.text = restaurant.description
 
             addStarsToLayout(context, holder.starsLayout, Math.round(restaurant.rating).toInt())
+
+            holder.tipsButton.setOnClickListener {
+                presenter.startPaymentActivity(restaurant.id)
+            }
         }
 
         override fun getItemCount(): Int {

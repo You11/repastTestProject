@@ -1,12 +1,10 @@
-package ru.you11.repasttestproject.main
+package ru.you11.repasttestproject.payment
 
-class FavoritesPresenter(private val fragment: FavoritesFragment): FavoriteContract.Presenter {
-
+class FeedbackPresenter(private val fragment: FeedbackFragment): FeedbackContract.Presenter {
 
     init {
         fragment.presenter = this
     }
-
 
     override fun start() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

@@ -1,9 +1,14 @@
 package ru.you11.repasttestproject.model
 
-data class Workers(val id: Int,
-                   val name: String,
-                   val photo: String,
-                   val position: String,
-                   val restaurantId: Int) {
+import com.google.gson.annotations.SerializedName
+
+data class Workers(
+    val id: Int,
+    val name: String,
+    val photo: String,
+    val position: String,
+    @SerializedName("restaurant_id")
+    val restaurantId: Int
+) {
 
 }

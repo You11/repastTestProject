@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">RepastTestProject</string>
+
+    <string name="base_url">http://cookit.zenithapps.ru/</string>
     
     <string name="nearby_header">Обзор</string>
     <string name="nearby_sub_header">Рядом с вами</string>

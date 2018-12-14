@@ -2,14 +2,19 @@ package ru.you11.repasttestproject.main
 
 import ru.you11.repasttestproject.BasePresenter
 import ru.you11.repasttestproject.BaseView
+import ru.you11.repasttestproject.model.Restaurant
 
 interface NearbyContract {
 
     interface View: BaseView<Presenter> {
 
+        fun updateRVWithRestaurants(restaurants: ArrayList<Restaurant>)
     }
 
     interface Presenter: BasePresenter {
+
+        fun loadRestaurants()
+
 
     }
 }

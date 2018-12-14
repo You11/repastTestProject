@@ -24,8 +24,16 @@ class MainPagerAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
 
     override fun getItem(i: Int): Fragment {
         return when (i) {
-            0 -> NearbyFragment()
-            1 -> FavoritesFragment()
+            0 -> {
+                val fragment = NearbyFragment()
+                NearbyPresenter(fragment)
+                fragment
+            }
+            1 -> {
+                val fragment = FavoritesFragment()
+                FavoritesPresenter(fragment)
+                fragment
+            }
             2 -> UserProfileFragment()
             else -> throw Exception("Fragment not found")
         }

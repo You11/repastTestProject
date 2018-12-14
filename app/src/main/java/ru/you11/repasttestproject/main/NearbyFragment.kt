@@ -19,22 +19,36 @@ class NearbyFragment: Fragment(), NearbyContract.View {
 
     override lateinit var presenter: NearbyContract.Presenter
 
+    private lateinit var recyclerView: RecyclerView
+    private val restaurants = ArrayList<Restaurant>()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val root = inflater.inflate(R.layout.fragment_nearby, container, false)
         with(root) {
-            val restaurantResults = ArrayList<Restaurant>()
-            restaurantResults.add(Restaurant(0, "Maecenas 1903", 4.5, "Екатеринбург, ул. Братьев Быковых, 74", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "http://cookit.zenithapps.ru/images/prt.jpg", "12312", 4))
-            restaurantResults.add(Restaurant(0, "Maecenas 1903", 1.3, "Екатеринбург, ул. Братьев Быковых, 74", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "http://cookit.zenithapps.ru/images/prt.jpg", "12312", 4))
+//            restaurantResults.add(Restaurant(0, "Maecenas 1903", 4.5, "Екатеринбург, ул. Братьев Быковых, 74", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "http://cookit.zenithapps.ru/images/prt.jpg", "12312", 4))
+//            restaurantResults.add(Restaurant(0, "Maecenas 1903", 1.3, "Екатеринбург, ул. Братьев Быковых, 74", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "http://cookit.zenithapps.ru/images/prt.jpg", "12312", 4))
 
-            val rv = findViewById<RecyclerView>(R.id.nearby_rv)
-            rv.layoutManager = LinearLayoutManager(activity)
-            rv.adapter = RestaurantRecyclerViewAdapter(restaurantResults)
-            rv.isNestedScrollingEnabled = false
+            recyclerView = findViewById(R.id.nearby_rv)
+            recyclerView.layoutManager = LinearLayoutManager(activity)
+            recyclerView.adapter = RestaurantRecyclerViewAdapter(restaurants)
+            recyclerView.isNestedScrollingEnabled = false
         }
 
         return root
     }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.loadRestaurants()
+    }
+
+    override fun updateRVWithRestaurants(restaurants: ArrayList<Restaurant>) {
+        this.restaurants.clear()
+        this.restaurants.addAll(restaurants)
+        recyclerView.adapter?.notifyDataSetChanged()
+    }
+
 
     class RestaurantRecyclerViewAdapter(private val results: ArrayList<Restaurant>):
         RecyclerView.Adapter<RestaurantRecyclerViewAdapter.ViewHolder>() {

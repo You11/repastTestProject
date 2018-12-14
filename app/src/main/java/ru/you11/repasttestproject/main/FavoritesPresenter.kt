@@ -1,6 +1,6 @@
 package ru.you11.repasttestproject.main
 
-class FavoritesPresenter(val fragment: FavoritesFragment): FavoriteContract.Presenter {
+class FavoritesPresenter(private val fragment: FavoritesFragment): FavoriteContract.Presenter {
 
     init {
         fragment.presenter = this

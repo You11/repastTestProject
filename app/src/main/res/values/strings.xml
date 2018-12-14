@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RepastTestProject</string>
+    
+    <string name="nearby_header">Обзор</string>
+    <string name="nearby_sub_header">Рядом с вами</string>
+    <string name="nearby_restaurant_not_found_message">Не видите нужное заведение?</string>
+    <string name="nearby_qr_button_text">определить по qr</string>
 </resources>

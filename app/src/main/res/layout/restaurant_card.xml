@@ -95,27 +95,32 @@
             <Button android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rv_restaurant_give_tips_button"
-                    android:text="@string/restaurant_tips_button"/>
+                    android:text="@string/restaurant_tips_button"
+                    style="?android:attr/borderlessButtonStyle"/>
 
-            <Button android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="6dp"
-                    android:id="@+id/rv_restaurant_favorite_button"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:text="З"/>
+            <ImageButton android:layout_width="24dp"
+                         android:layout_height="24dp"
+                         android:layout_marginTop="12dp"
+                         android:layout_marginEnd="16dp"
+                         android:layout_marginRight="16dp"
+                         android:layout_marginBottom="6dp"
+                         android:id="@+id/rv_restaurant_favorite_button"
+                         android:layout_alignParentRight="true"
+                         android:layout_alignParentEnd="true"
+                         android:src="@drawable/baseline_star_black_18"
+                         android:background="?android:selectableItemBackground"/>
 
-            <Button android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
-                    android:layout_marginBottom="6dp"
-                    android:id="@+id/rv_restaurant_call_button"
-                    android:layout_toLeftOf="@id/rv_restaurant_favorite_button"
-                    android:layout_toStartOf="@id/rv_restaurant_favorite_button"
-                    android:text="Л"/>
+            <ImageButton android:layout_width="24dp"
+                         android:layout_height="24dp"
+                         android:layout_marginTop="12dp"
+                         android:layout_marginEnd="24dp"
+                         android:layout_marginRight="24dp"
+                         android:layout_marginBottom="6dp"
+                         android:id="@+id/rv_restaurant_call_button"
+                         android:layout_toLeftOf="@id/rv_restaurant_favorite_button"
+                         android:layout_toStartOf="@id/rv_restaurant_favorite_button"
+                         android:src="@drawable/baseline_phone_black_18"
+                         android:background="?android:selectableItemBackground"/>
 
         </RelativeLayout>
 

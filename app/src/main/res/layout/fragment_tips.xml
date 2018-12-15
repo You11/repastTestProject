@@ -11,7 +11,9 @@
                     android:paddingTop="24dp"
                     android:paddingEnd="16dp"
                     android:paddingRight="16dp"
-                    android:focusableInTouchMode="true">
+                    android:focusableInTouchMode="true"
+                    android:visibility="gone"
+                    android:id="@+id/tips_root_relative_layout">
 
         <TextView
                 android:layout_width="wrap_content"

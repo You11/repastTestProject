@@ -1,10 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="24dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feedback_header"
+                android:id="@+id/feedback_header"
+                android:layout_centerHorizontal="true"
+                style="@style/CustomHeader"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feedback_sub_header"
+                android:layout_below="@id/feedback_header"
+                android:id="@+id/feedback_sub_header"
+                android:layout_centerHorizontal="true"
+                style="@style/CustomSubHeader"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/feedback_sub_header"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/feedback_star_layout">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_star_border_black_24"
+                    android:id="@+id/feedback_star_1"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="5dp"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_star_border_black_24"
+                    android:id="@+id/feedback_star_2"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="5dp"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_star_border_black_24"
+                    android:id="@+id/feedback_star_3"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="5dp"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_star_border_black_24"
+                    android:id="@+id/feedback_star_4"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="5dp"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_star_border_black_24"
+                    android:id="@+id/feedback_star_5"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="5dp"/>
+
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/feedback_rating_title"
+                  android:layout_below="@id/feedback_star_layout"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginTop="6dp"
+                  android:textColor="@color/colorTitle"
+                  android:visibility="gone"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/feedback_rating_question"
+                  android:layout_centerHorizontal="true"
+                  android:layout_below="@id/feedback_rating_title"
+                  android:layout_marginTop="16dp"
+                  android:textColor="@color/colorSubTitle"
+                  android:visibility="gone"/>
+
+        <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:id="@+id/feedback_rv_variants"
+                android:visibility="gone"
+                android:layout_below="@+id/feedback_rating_question"
+                android:layout_marginTop="8dp"/>
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="meow"/>
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/feedback_commentary_hint"
+                  android:layout_below="@id/feedback_rv_variants"
+                  android:layout_marginTop="8dp"
+                  android:id="@+id/feedback_commentary_edit_text"
+                  android:visibility="gone"
+                  android:background="#E0E0E0"
+                  android:padding="10dp"/>
 
-</RelativeLayout>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/feedback_restaurant_text"
+                  android:layout_below="@id/feedback_commentary_edit_text"
+                  android:layout_marginTop="32dp"
+                  android:layout_centerHorizontal="true"/>
+
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/feedback_waiter_layout"
+                        android:layout_below="@id/feedback_restaurant_text"
+                        android:layout_marginTop="8dp"
+                        android:layout_centerHorizontal="true">
+
+            <ImageView android:layout_width="80dp"
+                       android:layout_height="80dp"
+                       android:id="@+id/feedback_worker_photo"
+                       android:contentDescription="@string/feedback_photo_content_description"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="40dp"
+                      android:id="@+id/feedback_worker_name"
+                      android:layout_toRightOf="@id/feedback_worker_photo"
+                      android:layout_toEndOf="@id/feedback_worker_photo"
+                      android:textColor="@color/colorTitle"
+                      android:layout_marginLeft="10dp"
+                      android:layout_marginStart="10dp"
+                      android:gravity="center_vertical"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="40dp"
+                      android:id="@+id/feedback_worker_position"
+                      android:layout_toRightOf="@id/feedback_worker_photo"
+                      android:layout_toEndOf="@id/feedback_worker_photo"
+                      android:layout_below="@id/feedback_worker_name"
+                      android:textColor="@color/colorSubTitle"
+                      android:layout_marginLeft="10dp"
+                      android:layout_marginStart="10dp"
+                      android:gravity="center_vertical"/>
+
+        </RelativeLayout>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feedback_button_continue_text"
+                android:background="@drawable/round_button"
+                android:id="@+id/feedback_continue_button"
+                android:layout_below="@id/feedback_waiter_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="32dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingRight="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="#ffffff"
+                android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

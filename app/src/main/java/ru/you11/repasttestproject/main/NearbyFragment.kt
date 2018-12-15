@@ -22,6 +22,8 @@ class NearbyFragment: Fragment(), NearbyContract.View {
     private lateinit var recyclerView: RecyclerView
     private val restaurants = ArrayList<Restaurant>()
 
+    private lateinit var rootLayout: RelativeLayout
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val root = inflater.inflate(R.layout.fragment_nearby, container, false)
@@ -30,6 +32,8 @@ class NearbyFragment: Fragment(), NearbyContract.View {
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.adapter = RestaurantRecyclerViewAdapter(restaurants, presenter)
             recyclerView.isNestedScrollingEnabled = false
+
+            rootLayout = findViewById(R.id.nearby_root_relative_layout)
         }
 
         return root
@@ -44,6 +48,7 @@ class NearbyFragment: Fragment(), NearbyContract.View {
         this.restaurants.clear()
         this.restaurants.addAll(restaurants)
         recyclerView.adapter?.notifyDataSetChanged()
+        rootLayout.visibility = RelativeLayout.VISIBLE
     }
 
 
@@ -83,11 +88,7 @@ class NearbyFragment: Fragment(), NearbyContract.View {
             addStarsToLayout(context, holder.starsLayout, Math.round(restaurant.rating).toInt())
 
             holder.tipsButton.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putInt("restaurantId", restaurant.id)
-                bundle.putString("restaurantName", restaurant.name)
-
-                presenter.startPaymentActivity(bundle)
+                presenter.startPaymentActivity(restaurant)
             }
         }
 

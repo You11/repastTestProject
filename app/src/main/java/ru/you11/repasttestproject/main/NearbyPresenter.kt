@@ -7,6 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ru.you11.repasttestproject.R
 import ru.you11.repasttestproject.model.ApiService
+import ru.you11.repasttestproject.model.Restaurant
 import ru.you11.repasttestproject.payment.PaymentActivity
 
 class NearbyPresenter(private val fragment: NearbyFragment) : NearbyContract.Presenter {
@@ -35,9 +36,9 @@ class NearbyPresenter(private val fragment: NearbyFragment) : NearbyContract.Pre
             })
     }
 
-    override fun startPaymentActivity(bundle: Bundle) {
+    override fun startPaymentActivity(restaurant: Restaurant) {
         val intent = Intent(fragment.activity, PaymentActivity::class.java)
-        intent.putExtra("data", bundle)
+        intent.putExtra("restaurant", restaurant)
         fragment.startActivity(intent)
     }
 }

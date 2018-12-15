@@ -10,8 +10,10 @@
                     android:paddingTop="24dp"
                     android:paddingEnd="16dp"
                     android:paddingRight="16dp"
-                    android:focusableInTouchMode="true">
-        <!--TODO focusableintouchmode is incorrect probably, added because recycler view is focused on start-->
+                    android:focusableInTouchMode="true"
+                    android:id="@+id/nearby_root_relative_layout"
+                    android:visibility="gone">
+        <!--TODO focusableintouchmode is incorrect probably, added because recycler checkedTextView is focused on start-->
 
         <TextView
                 android:layout_width="wrap_content"

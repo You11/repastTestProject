@@ -4,6 +4,8 @@ import android.content.Context
 import ru.yandex.money.android.sdk.*
 import ru.you11.repasttestproject.App
 import ru.you11.repasttestproject.R
+import ru.you11.repasttestproject.model.Restaurant
+import ru.you11.repasttestproject.model.Worker
 import java.math.BigDecimal
 import java.util.*
 
@@ -46,11 +48,11 @@ class PaymentPresenter(private val fragment: PaymentFragment) : PaymentContract.
     }
 
     private fun getRestaurantName(): String {
-        return fragment.arguments?.getString("restaurantName") ?: "Ресторант"
+        return fragment.arguments?.getParcelable<Restaurant>("restaurant")?.name ?: "Ресторант"
     }
 
     private fun getWorkerName(): String {
-        return fragment.arguments?.getString("workerName") ?: "Официант"
+        return fragment.arguments?.getParcelable<Worker>("worker")?.name ?: "Официант"
     }
 
     override fun startFeedbackFragment() {

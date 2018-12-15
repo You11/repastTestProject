@@ -42,9 +42,17 @@ interface FeedbackContract {
 
     interface View: BaseView<Presenter> {
 
+
     }
 
     interface Presenter: BasePresenter {
 
+        fun getRestaurantDescription(): String
+
+        fun getWorkerName(): String
+
+        fun getWorkerPhotoUrl(): String
+
+        fun getWorkerPosition(): String
     }
 }

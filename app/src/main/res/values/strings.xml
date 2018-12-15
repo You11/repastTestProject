@@ -22,4 +22,31 @@
 
     <string name="feedback_header">Спасибо вам!</string>
     <string name="feedback_sub_header">Оцените нашу работу, мы будем рады Вашему мнению!</string>
+    <string name="feedback_commentary_hint">Комментарий к оценке</string>
+    <string name="feedback_photo_content_description">Фотография сотрудника</string>
+    <string name="feedback_button_continue_text">Продолжить</string>
+    
+    <string-array name="feedback_positive_responses">
+        <item>Официант был учтив</item>
+        <item>Качественные блюда</item>
+        <item>Убранный стол</item>
+        <item>Правильный порядок подачи блюд</item>
+    </string-array>
+    <string name="feedback_positive_question">Что вас устроило?</string>
+
+    <string-array name="feedback_negative_responses">
+        <item>Официант был неучтив</item>
+        <item>Некачественные блюда</item>
+        <item>Неубранный стол</item>
+        <item>Нарушение порядка подачи блюд</item>
+    </string-array>
+    <string name="feedback_negative_question">Что вас не устроило?</string>
+
+    <string-array name="feedback_critique_titles">
+        <item>Ужасно</item>
+        <item>Плохо</item>
+        <item>Средне</item>
+        <item>Хорошо</item>
+        <item>Отлично</item>
+    </string-array>
 </resources>

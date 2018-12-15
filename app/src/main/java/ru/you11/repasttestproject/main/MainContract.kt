@@ -16,7 +16,7 @@ interface NearbyContract {
 
         fun loadRestaurants()
 
-        fun startPaymentActivity(bundle: Bundle)
+        fun startPaymentActivity(restaurant: Restaurant)
     }
 }
 

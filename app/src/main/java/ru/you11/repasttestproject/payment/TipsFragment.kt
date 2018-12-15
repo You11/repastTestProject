@@ -18,14 +18,17 @@ import ru.you11.repasttestproject.model.Worker
 import java.lang.Exception
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 import android.graphics.drawable.BitmapDrawable
+import ru.you11.repasttestproject.Utils.setCircularImage
 
 
-class TipsFragment: Fragment(), TipsContract.View {
+class TipsFragment : Fragment(), TipsContract.View {
 
     override lateinit var presenter: TipsContract.Presenter
 
     private lateinit var recyclerView: RecyclerView
     private val workers = ArrayList<Worker>()
+
+    private lateinit var rootLayout: RelativeLayout
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_tips, container, false)
@@ -34,6 +37,8 @@ class TipsFragment: Fragment(), TipsContract.View {
             recyclerView.layoutManager = LinearLayoutManager(activity as Context)
             recyclerView.adapter = WorkersRecyclerViewAdapter(workers, presenter)
             recyclerView.isNestedScrollingEnabled = false
+
+            rootLayout = findViewById(R.id.tips_root_relative_layout)
         }
 
         return root
@@ -53,6 +58,7 @@ class TipsFragment: Fragment(), TipsContract.View {
         this.workers.clear()
         this.workers.addAll(workers)
         recyclerView.adapter?.notifyDataSetChanged()
+        rootLayout.visibility = RelativeLayout.VISIBLE
     }
 
     class WorkersRecyclerViewAdapter(private val results: ArrayList<Worker>,
@@ -68,7 +74,13 @@ class TipsFragment: Fragment(), TipsContract.View {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkersRecyclerViewAdapter.ViewHolder {
-            return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.workers_card, parent, false) as RelativeLayout)
+            return ViewHolder(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.workers_card,
+                    parent,
+                    false
+                ) as RelativeLayout
+            )
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -92,7 +104,7 @@ class TipsFragment: Fragment(), TipsContract.View {
             Picasso.get()
                 .load(url)
                 .fit()
-                .into(imageView, object: Callback {
+                .into(imageView, object : Callback {
                     override fun onSuccess() {
                         setCircularImage(imageView, context)
                     }
@@ -102,14 +114,6 @@ class TipsFragment: Fragment(), TipsContract.View {
                         throw Exception(e?.localizedMessage)
                     }
                 })
-        }
-
-        private fun setCircularImage(imageView: ImageView, context: Context) {
-            val imageBitmap = (imageView.drawable as BitmapDrawable).bitmap
-            val imageDrawable = RoundedBitmapDrawableFactory.create(context.resources, imageBitmap)
-            imageDrawable.isCircular = true
-            imageDrawable.cornerRadius = Math.max(imageBitmap.width, imageBitmap.height) / 2.0f
-            imageView.setImageDrawable(imageDrawable)
         }
     }
 }

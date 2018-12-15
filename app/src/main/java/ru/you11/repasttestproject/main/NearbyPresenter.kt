@@ -1,6 +1,7 @@
 package ru.you11.repasttestproject.main
 
 import android.content.Intent
+import android.os.Bundle
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -34,9 +35,9 @@ class NearbyPresenter(private val fragment: NearbyFragment) : NearbyContract.Pre
             })
     }
 
-    override fun startPaymentActivity(restaurantId: Int) {
+    override fun startPaymentActivity(bundle: Bundle) {
         val intent = Intent(fragment.activity, PaymentActivity::class.java)
-        intent.putExtra("restaurantId", restaurantId)
+        intent.putExtra("data", bundle)
         fragment.startActivity(intent)
     }
 }

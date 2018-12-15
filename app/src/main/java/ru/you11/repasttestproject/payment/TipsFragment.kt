@@ -31,7 +31,7 @@ class TipsFragment: Fragment(), TipsContract.View {
         val root = inflater.inflate(R.layout.fragment_tips, container, false)
         with(root) {
             recyclerView = findViewById(R.id.tips_rv)
-            recyclerView.layoutManager = LinearLayoutManager(activity)
+            recyclerView.layoutManager = LinearLayoutManager(activity as Context)
             recyclerView.adapter = WorkersRecyclerViewAdapter(workers, presenter)
             recyclerView.isNestedScrollingEnabled = false
         }
@@ -42,6 +42,11 @@ class TipsFragment: Fragment(), TipsContract.View {
     override fun onResume() {
         super.onResume()
         presenter.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.clearDisposable()
     }
 
     override fun updateRVWithWorkers(workers: ArrayList<Worker>) {
@@ -73,6 +78,10 @@ class TipsFragment: Fragment(), TipsContract.View {
             holder.name.text = worker.name
             holder.position.text = worker.position
             loadPhoto(worker.photo, holder.photo, context)
+
+            holder.layout.setOnClickListener {
+                presenter.startPaymentFragment(worker)
+            }
         }
 
         override fun getItemCount(): Int {

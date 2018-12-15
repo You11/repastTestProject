@@ -83,7 +83,11 @@ class NearbyFragment: Fragment(), NearbyContract.View {
             addStarsToLayout(context, holder.starsLayout, Math.round(restaurant.rating).toInt())
 
             holder.tipsButton.setOnClickListener {
-                presenter.startPaymentActivity(restaurant.id)
+                val bundle = Bundle()
+                bundle.putInt("restaurantId", restaurant.id)
+                bundle.putString("restaurantName", restaurant.name)
+
+                presenter.startPaymentActivity(bundle)
             }
         }
 

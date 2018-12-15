@@ -10,8 +10,7 @@
                     android:paddingTop="24dp"
                     android:paddingEnd="16dp"
                     android:paddingRight="16dp"
-                    android:focusableInTouchMode="true"
-                    android:background="#ffffff">
+                    android:focusableInTouchMode="true">
         <!--TODO focusableintouchmode is incorrect probably, added because recycler view is focused on start-->
 
         <TextView

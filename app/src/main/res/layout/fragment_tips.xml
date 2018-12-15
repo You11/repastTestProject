@@ -11,8 +11,7 @@
                     android:paddingTop="24dp"
                     android:paddingEnd="16dp"
                     android:paddingRight="16dp"
-                    android:focusableInTouchMode="true"
-                    android:background="#ffffff">
+                    android:focusableInTouchMode="true">
 
         <TextView
                 android:layout_width="wrap_content"

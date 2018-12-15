@@ -1,5 +1,6 @@
 package ru.you11.repasttestproject.main
 
+import android.os.Bundle
 import ru.you11.repasttestproject.BasePresenter
 import ru.you11.repasttestproject.BaseView
 import ru.you11.repasttestproject.model.Restaurant
@@ -15,7 +16,7 @@ interface NearbyContract {
 
         fun loadRestaurants()
 
-        fun startPaymentActivity(restaurantId: Int)
+        fun startPaymentActivity(bundle: Bundle)
     }
 }
 

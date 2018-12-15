@@ -5,6 +5,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ru.you11.repasttestproject.R
 import ru.you11.repasttestproject.model.ApiService
+import ru.you11.repasttestproject.model.Worker
 import java.lang.Exception
 
 class TipsPresenter(private val fragment: TipsFragment): TipsContract.Presenter {
@@ -37,5 +38,23 @@ class TipsPresenter(private val fragment: TipsFragment): TipsContract.Presenter 
         val id = fragment.arguments?.getInt("restaurantId")
         if (id == null || id == -1) throw Exception("Restaurant id not found")
         return id
+    }
+
+    override fun startPaymentFragment(worker: Worker) {
+        val newFragment = PaymentFragment()
+        val bundle = fragment.arguments
+        bundle?.putInt("workerId", worker.id)
+        bundle?.putString("workerName", worker.name)
+        newFragment.arguments = bundle
+        fragment.activity?.supportFragmentManager
+            ?.beginTransaction()
+            ?.replace(R.id.fragment_container, newFragment)
+            ?.addToBackStack(null)
+            ?.commit()
+        PaymentPresenter(newFragment)
+    }
+
+    override fun clearDisposable() {
+        compDisposable.clear()
     }
 }

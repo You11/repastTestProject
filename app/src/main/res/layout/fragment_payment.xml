@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</RelativeLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="24dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_header"
+                android:id="@+id/payment_header"
+                style="@style/CustomHeader"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_sub_header"
+                android:layout_below="@id/payment_header"
+                android:id="@+id/payment_sub_header"
+                style="@style/CustomSubHeader"/>
+
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/payment_amount_et_hint"
+                  android:inputType="numberDecimal"
+                  android:layout_marginTop="20dp"
+                  android:id="@+id/payment_amount_edit_text"
+                  android:layout_below="@id/payment_sub_header"
+                  android:layout_toLeftOf="@id/payment_pay_button"
+                  android:layout_toStartOf="@id/payment_pay_button"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_pay_button_text"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/payment_pay_button"
+                android:layout_below="@id/payment_sub_header"
+                android:enabled="false"
+                android:background="?android:selectableItemBackground"/>
+
+
+    </RelativeLayout>
+
+</ScrollView>

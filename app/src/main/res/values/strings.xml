@@ -17,6 +17,8 @@
 
     <string name="payment_header">Шаг второй</string>
     <string name="payment_sub_header">Укажите сумму чаевых и укажите платежные реквизиты</string>
+    <string name="payment_amount_et_hint">Укажите сумму (руб)</string>
+    <string name="payment_pay_button_text">Оплатить</string>
 
     <string name="feedback_header">Спасибо вам!</string>
     <string name="feedback_sub_header">Оцените нашу работу, мы будем рады Вашему мнению!</string>

@@ -17,6 +17,10 @@ interface TipsContract {
         fun getRestaurantId(): Int
 
         fun loadWorkers(restaurantId: Int)
+
+        fun startPaymentFragment(worker: Worker)
+
+        fun clearDisposable()
     }
 }
 
@@ -28,6 +32,9 @@ interface PaymentContract {
 
     interface Presenter: BasePresenter {
 
+        fun pay(amount: Double)
+
+        fun startFeedbackFragment()
     }
 }
 

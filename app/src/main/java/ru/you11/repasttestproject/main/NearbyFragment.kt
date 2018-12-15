@@ -81,7 +81,9 @@ class NearbyFragment: Fragment(), NearbyContract.View {
                 .fit()
                 .into(holder.photo)
             holder.name.text = restaurant.name
-            holder.rating.text = restaurant.rating.toString()
+            holder.rating.text = context.resources.getString(R.string.restaurant_rating_text,
+                restaurant.rating.toString(),
+                restaurant.numberOfRatings.toString())
             holder.address.text = restaurant.address
             holder.description.text = restaurant.description
 

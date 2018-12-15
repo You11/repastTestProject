@@ -9,6 +9,7 @@
     <string name="nearby_qr_button_text">определить по qr</string>
     <string name="restaurant_photo_description">Фото ресторана</string>
     <string name="restaurant_tips_button">Оставить чаевые</string>
+    <string name="restaurant_rating_text">%1$s (%2$s)</string>
 
     <string name="tips_header">Шаг первый</string>
     <string name="tips_sub_header">Выберите понравившегося сотрудника</string>

@@ -39,13 +39,15 @@
                       android:textColor="@color/colorTitle"/>
 
             <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
+                          android:layout_height="16dp"
                           android:orientation="horizontal"
                           android:id="@+id/rv_restaurant_stars_layout"
-                          android:layout_below="@id/rv_restaurant_name"/>
+                          android:layout_below="@id/rv_restaurant_name"
+                          android:gravity="center_vertical"
+                />
 
             <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
+                      android:layout_height="16dp"
                       android:layout_marginStart="8dp"
                       android:layout_marginLeft="8dp"
                       android:id="@+id/rv_restaurant_rating"
@@ -55,7 +57,8 @@
                       android:textSize="12sp"
                       android:fontFamily="sans-serif"
                       android:textStyle="normal"
-                      android:textColor="@color/colorSubTitle"/>
+                      android:textColor="@color/colorSubTitle"
+            android:gravity="center_vertical"/>
 
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"

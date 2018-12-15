@@ -91,13 +91,7 @@ class FeedbackFragment: Fragment(), FeedbackContract.View {
                 }
                 rating = it.tag as Int
 
-                for (j in 0 until rating) {
-                    Picasso.get().load(R.drawable.baseline_star_black_24).into(starLayout.getChildAt(j) as ImageView)
-                }
-
-                for (j in rating..4) {
-                    Picasso.get().load(R.drawable.baseline_star_border_black_24).into(starLayout.getChildAt(j) as ImageView)
-                }
+                setStars(rating, starLayout)
 
                 if (rating in 1..3) {
                     showNegativeCritique()
@@ -107,9 +101,23 @@ class FeedbackFragment: Fragment(), FeedbackContract.View {
                     ratingQuestion.text = resources.getString(R.string.feedback_positive_question)
                 }
 
-                val titlesArray = resources.getStringArray(R.array.feedback_critique_titles)
-                ratingTitle.text = titlesArray[rating - 1]
+                setRatingTitle(rating)
             }
+        }
+    }
+
+    private fun setRatingTitle(rating: Int) {
+        val titlesArray = resources.getStringArray(R.array.feedback_critique_titles)
+        ratingTitle.text = titlesArray[rating - 1]
+    }
+
+    private fun setStars(rating: Int, starLayout: LinearLayout) {
+        for (j in 0 until rating) {
+            Picasso.get().load(R.drawable.baseline_star_black_24).into(starLayout.getChildAt(j) as ImageView)
+        }
+
+        for (j in rating..4) {
+            Picasso.get().load(R.drawable.baseline_star_border_black_24).into(starLayout.getChildAt(j) as ImageView)
         }
     }
 
